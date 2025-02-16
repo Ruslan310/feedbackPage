@@ -1,19 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import "./globals.css";
+import {ConfigProvider} from "antd";
+import {colorTheme} from './util/themes';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
+const antTheme = {
+  components: {
+    Modal: {
+      contentBg: colorTheme.navbar
+    },
+    Menu: {
+      itemSelectedBg: colorTheme.navbar,
+      itemActiveBg: colorTheme.navbar,
+      itemSelectedColor: colorTheme.darkPrimary,
+      dangerItemHoverColor: colorTheme.primary,
+      dangerItemColor: colorTheme.primary,
+      dangerItemActiveBg: colorTheme.primary,
+      dangerItemSelectedColor: colorTheme.primary,
+      dangerItemSelectedBg: colorTheme.navbar,
+      itemBg: colorTheme.navbar,
+      lineWidth: 0
+    },
+    Form: {
+      labelColor: colorTheme.secondary,
+    },
+  },
+  token: {
+    colorPrimaryHover: colorTheme.primary,
+    colorPrimary: colorTheme.primary,
+  }}
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <ConfigProvider theme={antTheme}>
+        <App />
+    </ConfigProvider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

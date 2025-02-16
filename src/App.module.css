@@ -1,0 +1,88 @@
+.page {
+  height: 100vh;
+  display: flex;
+  padding-top: 5%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  @media (max-width: 600px) {
+    margin: 0;
+  }
+}
+
+.input {
+  width: 500px;
+  margin-bottom: 10px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.submitButton {
+  font-size: 16px;
+  margin: 0 15px;
+}
+
+.footerBlock  {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+  width: 100vw;
+  background-color: black;
+
+  @media (max-width: 600px) {
+    display: block;
+    padding-left: 10px;
+  }
+}
+
+.footerContactUs {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerContactUsItem {
+  display: flex;
+  align-items: center;
+}
+
+.contactText {
+  color: gray;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.footerTitle {
+  font-family: Arial, sans-serif;
+  color: #D5401E;
+  margin-bottom: 10px;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.socialBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
