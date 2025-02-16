@@ -35,7 +35,6 @@ const App = () => {
     try {
       setFetching(true)
       const {phone, name, review, company, rate} = values;
-      console.log('-----values', values)
       if (phone && name && review && company && rate) {
 
         const mes = `-----Review From Service-----
