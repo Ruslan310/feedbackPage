@@ -4,6 +4,7 @@ import App from './App';
 import "./globals.css";
 import {ConfigProvider} from "antd";
 import {colorTheme} from './util/themes';
+import "antd/dist/reset.css";
 
 const antTheme = {
   components: {

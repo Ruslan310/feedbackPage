@@ -24,7 +24,6 @@ const UploadPictureReview = ({
                          name = "picture",
                          label = "Attach an image",
 }: Props) => {
-
   const uploadButton = (
     <div>
       {load ? <LoadingOutlined/> : <PlusOutlined/>}
@@ -35,6 +34,7 @@ const UploadPictureReview = ({
     <Form.Item label={label} name={name}>
       <Upload
         name={name}
+        accept="image/*"
         listType="picture-card"
         className={className}
         showUploadList={false}
@@ -60,13 +60,20 @@ const UploadPictureReview = ({
           }
         }}
         beforeUpload={async (file) => {
-          const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/webp';
+          const isJpgOrPng =
+            file.type === "image/heic" ||
+            file.type === "image/heif" ||
+            file.type === 'image/jpeg' ||
+            file.type === 'image/png' ||
+            file.type === 'image/webp';
+
           if (!isJpgOrPng) {
             await message.error('You can only upload JPG/PNG/WEBP file!');
           }
-          const isLt2M = file.size / 1024 / 1024 < 2;
+          const fileSize = 5;
+          const isLt2M = file.size / 1024 / 1024 < fileSize;
           if (!isLt2M) {
-            await message.error('Image must smaller than 2MB!');
+            await message.error(`Image must smaller than ${fileSize}MB!`);
           }
           return isJpgOrPng && isLt2M;
         }}

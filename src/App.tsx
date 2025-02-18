@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from './App.module.css';
 import Button from "./components/Button/Button";
-import {Form, Input, message, FormProps, Rate, Modal} from 'antd';
+import {Form, Input, message, FormProps, Rate} from 'antd';
 import UploadPictureReview from './components/Form/UploadPictureReviews';
 import {sendBotMessage, sendBotPhoto} from "./util/handle";
 import {colorTheme} from "./util/themes";
@@ -24,7 +24,6 @@ const App = () => {
   const [picture, setPicture] = useState('');
   const [isLoadingImage, setLoadingImage] = useState(false);
   const [isFetching, setFetching] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
 
   const reset = () => {
     form.resetFields();
@@ -51,29 +50,18 @@ ${'⭐'.repeat(rate)}
         }
 
         reset()
-        setOpenModal(true);
-        message.success({content: 'Review successfully saved!', duration: 2});
+        await message.success({content: 'Review successfully sent!', duration: 2});
         setFetching(false)
       }
     } catch (err) {
       setFetching(false)
       console.log('----err', err)
-      message.error({content: "Something's wrong..", duration: 2});
+      await message.error({content: "Something's wrong..", duration: 2});
     }
   }
 
   return (
     <div className={styles.page}>
-      <Modal
-        open={openModal}
-        onCancel={() => setOpenModal(false)}
-        footer={false}
-        width={460}>
-        <div className={styles.messageContainer}>
-          <h3>Review successfully sent!</h3>
-          <Button onClick={() => setOpenModal(false)}>OK</Button>
-        </div>
-      </Modal>
       <Form
         form={form}
         className={styles.form}

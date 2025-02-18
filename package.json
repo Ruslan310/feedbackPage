@@ -10,8 +10,8 @@
     "antd": "^5.24.0",
     "axios": "^1.7.9",
     "env": "^0.0.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-icons": "^5.4.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5"
